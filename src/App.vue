@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
 import type { FormInterface } from './interfaces/form.interface';
 
 import useForm from './composables/useForm';
 import useAxios from './composables/useAxios';
 
 import formSchema from './schema/form.schema';
-import { onMounted } from 'vue';
 
 /** поля формы */
 const formFields = { email: '', message: '' }
