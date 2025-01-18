@@ -2,8 +2,10 @@
 import type { FormInterface } from './interfaces/form.interface';
 
 import useForm from './composables/useForm';
+import useAxios from './composables/useAxios';
 
 import formSchema from './schema/form.schema';
+import { onMounted } from 'vue';
 
 /** поля формы */
 const formFields = { email: '', message: '' }
@@ -15,6 +17,12 @@ const {
   updateValue, 
   validateForm 
 } = useForm<FormInterface>(formFields, formSchema)
+
+
+onMounted(async () => {
+ const data = await useAxios('google.com', 'GET')
+ console.log(data)
+})
 </script>
 
 <template>
